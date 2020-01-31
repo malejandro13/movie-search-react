@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
+import SearchFormContainer from '../containers/SearchFormContainer'
 
 const Welcome = () => (
     <Fragment>
-        <h1>Hello World</h1>
-    </Fragment>
+        <SearchFormContainer />
+    </Fragment >
 )
 
 export default Welcome
