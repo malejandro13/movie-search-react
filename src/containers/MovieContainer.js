@@ -1,8 +1,9 @@
 import React, { useState, Fragment } from 'react'
 import SearchForm from '../components/SearchForm'
 import MoviesList from '../components/MoviesList'
+import Footer from '../components/Footer'
 
-const SearchFormContainer = () => {
+const MovieContainer = () => {
     const [form, setForm] = useState({
         movieTitle: ''
     })
@@ -35,6 +36,7 @@ const SearchFormContainer = () => {
 
     return (
         <Fragment>
+            <Footer />
             <SearchForm
                 form={form}
                 onChange={handleChange}
@@ -49,5 +51,5 @@ const SearchFormContainer = () => {
     )
 }
 
-export default SearchFormContainer
+export default MovieContainer
 

@@ -8,10 +8,11 @@ const useFetch = (url) => {
             try {
                 let res = await fetch(url)
                 let data = await res.json()
+                console.log('=> fetch hook', data)
                 setData(data)
 
             } catch (error) {
-                console.log('=> error api')
+                setData([])
             }
         }
         fetchResource()
