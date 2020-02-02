@@ -36,7 +36,7 @@ const SearchForm = ({ onChange, onSubmit, form }) => (
                                 />
                                 <button
                                     type="submit"
-                                    className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                                    className="flex-shrink-0 text-teal-500 hover:text-white hover:bg-teal-500 border border-teal-500 text-xs font-semibold rounded-full px-4 py-2 mt-3 leading-normal"
                                 >
                                     Buscar
                                 </button>
