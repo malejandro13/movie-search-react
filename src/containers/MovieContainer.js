@@ -38,9 +38,14 @@ const MovieContainer = () => {
     }
 
     let loader = null
+    let moviesList = null
 
     if (loading)
         loader = <Loading />
+
+    if (movies !== null)
+        moviesList = <MoviesList Search={movies.Search} />
+
 
     return (
         <Fragment>
@@ -51,9 +56,8 @@ const MovieContainer = () => {
                 onChange={handleChange}
                 onSubmit={handleSubmit}
             />
-            <MoviesList
-                Search={movies.Search}
-            />
+            {moviesList}
+
         </Fragment>
 
     )

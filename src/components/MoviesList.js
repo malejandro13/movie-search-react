@@ -4,7 +4,7 @@ import Emoji from './Emoji'
 
 
 
-const MoviesList = ({ Search, totalResults }) => (
+const MoviesList = ({ Search }) => (
     <Fragment>
         <div className="flex flex-wrap">
             {
