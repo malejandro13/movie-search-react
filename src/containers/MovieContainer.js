@@ -1,16 +1,16 @@
 import React, { useState, Fragment } from 'react'
 import SearchForm from '../components/SearchForm'
 import MoviesList from '../components/MoviesList'
+import Loading from '../components/Loading'
 import Footer from '../components/Footer'
+import { loadState, saveState } from '../utils/storeData'
 
 const MovieContainer = () => {
     const [form, setForm] = useState({
         movieTitle: ''
     })
-    const [movies, setMovies] = useState({
-        Search: [],
-        totalResults: "0"
-    })
+    const [movies, setMovies] = useState(loadState('movies'))
+    const [loading, setLoading] = useState(false)
 
     const handleChange = e => {
         setForm({
@@ -21,21 +21,30 @@ const MovieContainer = () => {
 
     const handleSubmit = async e => {
         e.preventDefault()
-        console.log(form)
 
         try {
+            setLoading(true)
             let res = await fetch(`${process.env.REACT_APP_API_URL}/?apikey=${process.env.REACT_APP_API_KEY}&s=${form.movieTitle}`)
             let data = await res.json()
             setMovies(data)
-            console.log(data)
+            setLoading(false)
+            saveState('movies', data)
 
         } catch (error) {
-            setMovies([])
+            setMovies('movies', [])
+            saveState([])
+            setLoading(false)
         }
     }
 
+    let loader = null
+
+    if (loading)
+        loader = <Loading />
+
     return (
         <Fragment>
+            {loader}
             <Footer />
             <SearchForm
                 form={form}
@@ -44,7 +53,6 @@ const MovieContainer = () => {
             />
             <MoviesList
                 Search={movies.Search}
-                totalResults={movies.totalResults}
             />
         </Fragment>
 

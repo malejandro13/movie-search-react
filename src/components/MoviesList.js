@@ -9,7 +9,7 @@ const MoviesList = ({ Search, totalResults }) => (
         <div className="flex flex-wrap">
             {
                 (!Search)
-                    ? (<h1 className="w-full text-3xl text-center pt-10">No se encuentran registros <Emoji symbol="🙄" /></h1>)
+                    ? (<h1 className="w-full text-3xl text-center pt-10 px-5">No se encuentran registros <Emoji symbol="🙄" /></h1>)
                     : Search.map((movie, index) => (
 
                         <div key={`${movie.imdbID}-${index}`} className="w-full sm:w-1/3 md:w-1/4 flex flex-col p-3" style={{ height: "500px" }}>
